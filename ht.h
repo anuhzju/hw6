@@ -521,13 +521,14 @@ HASH_INDEX_T HashTable<K,V,Prober,Hash,KEqual>::probe(const KeyType& key) const
     HASH_INDEX_T loc = prober_.next(); 
     totalProbes_++;
 
+/*
     if (std::is_same<KeyType, int>::value && std::is_same<Prober, LinearProber<int>::value){
         if (static_cast<HASH_INDEX_T>(key) < table_.size() && (table_[key] == nullptr || 
             (table_[key] != nullptr && !table_[key]->deleted && kequal_(table_[key]->item.first, key)))){
                 return key;
             }
     }
-
+*/
     HASH_INDEX_T firstDeleted = npos;
 
     while(npos != loc)
